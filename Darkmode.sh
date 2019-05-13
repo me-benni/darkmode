@@ -25,6 +25,9 @@ darkMode() {
 				end tell
 			end tell
 			'
+			if [ -f $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings ]; then
+				sed -i.tmp 's/ Dark//' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
+			fi
 			if ls /Applications/Alfred*.app >/dev/null 2>&1; then # If Alfred installed
 				osascript -e 'tell application "Alfred 3" to set theme "Alfred"' 2> /dev/null # Set Alfred default theme
 			fi
@@ -54,6 +57,9 @@ darkMode() {
 				end tell
 			end tell
 			'
+			if [ -f $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings ]; then
+				sed -i.tmp 's/Merge/Merge Dark/' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
+			fi
 			if ls /Applications/Alfred*.app >/dev/null 2>&1; then
 				osascript -e 'tell application "Alfred 3" to set theme "Alfred Dark"' 2> /dev/null # Set Alfred dark theme
 			fi
@@ -175,7 +181,7 @@ log() {
 exec 2> >(log)
 
 # Uninstall switch
-if [ "$1" == '/u' ]; then # Shell parameter
+if [ "$1" == '-u' ]; then # Shell parameter
 	unstl
 	error=$? # Get exit code from unstl()
 	if [ $error -ne 0 ]; then # If exit code not equal to 0
