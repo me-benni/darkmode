@@ -26,7 +26,7 @@ darkMode() {
 			end tell
 			'
 			if [ -f $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings ]; then
-				sed -i.tmp 's/ Dark//' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
+				sed -i '' 's/ Dark//' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
 			fi
 			if ls /Applications/Alfred*.app >/dev/null 2>&1; then # If Alfred installed
 				osascript -e 'tell application "Alfred 3" to set theme "Alfred"' 2> /dev/null # Set Alfred default theme
@@ -58,7 +58,7 @@ darkMode() {
 			end tell
 			'
 			if [ -f $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings ]; then
-				sed -i.tmp 's/Merge/Merge Dark/' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
+				sed -i '' 's/Merge\.sublime-theme/Merge Dark.sublime-theme/' $HOME/Library/Application\ Support/Sublime\ Merge/Packages/User/Preferences.sublime-settings
 			fi
 			if ls /Applications/Alfred*.app >/dev/null 2>&1; then
 				osascript -e 'tell application "Alfred 3" to set theme "Alfred Dark"' 2> /dev/null # Set Alfred dark theme
